@@ -13,17 +13,17 @@ export default defineConfig((configEnv) => ({
     react(),
     tsConfigPaths(),
     linterPlugin({
-      include: ['./src}/**/*.{ts,tsx}'],
+      include: ['./src}/**/*.{ts,tsx}', './styles/**/*.{scss,sass}'],
       linters: [new EsLinter({ configEnv })],
     }),
     dts({
-      include: ['src/'],
+      include: ['src/', 'styles/'],
     }),
   ],
   build: {
     lib: {
       entry: resolve('src', 'index.tsx'),
-      name: 'ReactViteLibrary',
+      name: 'react-markdown-editor',
       formats: ['es', 'umd'],
       fileName: (format) => `react-markdown-editor.${format}.js`,
     },
